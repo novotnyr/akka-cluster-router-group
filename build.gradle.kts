@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "org.example"
+group = "com.github.novotnyr.akka"
 version = "1.0-SNAPSHOT"
 
 repositories {
