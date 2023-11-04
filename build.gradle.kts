@@ -33,8 +33,8 @@ java {
 
 application {
     mainClass = "com.github.novotnyr.akka.Runner"
-    val host: String by project
-    val port: String by project
-    val seedNode: String by project
-    applicationDefaultJvmArgs = listOf("-Dakka.remote.artery.canonical.hostname=$host", "-Dakka.remote.artery.canonical.port=$port", "-Dakka.cluster.seed-nodes.0=akka://system@$seedNode")
+    val akkaHost: String? by project
+    val akkaPort: String? by project
+    val akkaSeedNode: String? by project
+    applicationDefaultJvmArgs = listOf("-Dakka.remote.artery.canonical.hostname=$akkaHost", "-Dakka.remote.artery.canonical.port=$akkaPort", "-Dakka.cluster.seed-nodes.0=akka://system@$akkaSeedNode")
 }
