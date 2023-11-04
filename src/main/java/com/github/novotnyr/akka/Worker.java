@@ -8,6 +8,8 @@ import akka.actor.typed.javadsl.Receive;
 import akka.actor.typed.receptionist.Receptionist;
 import akka.actor.typed.receptionist.ServiceKey;
 
+import java.io.Serializable;
+
 import static com.github.novotnyr.akka.Worker.WorkData;
 
 public class Worker extends AbstractBehavior<WorkData> {
@@ -35,6 +37,6 @@ public class Worker extends AbstractBehavior<WorkData> {
         return Behaviors.same();
     }
 
-    public record WorkData(String data) {}
+    public record WorkData(String data) implements Serializable {}
 }
 
