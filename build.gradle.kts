@@ -36,5 +36,11 @@ application {
     val akkaHost: String? by project
     val akkaPort: String? by project
     val akkaSeedNode: String? by project
-    applicationDefaultJvmArgs = listOf("-Dakka.remote.artery.canonical.hostname=$akkaHost", "-Dakka.remote.artery.canonical.port=$akkaPort", "-Dakka.cluster.seed-nodes.0=akka://system@$akkaSeedNode")
+    val akkaRole: String? by project
+    applicationDefaultJvmArgs = listOf(
+        "-Dakka.remote.artery.canonical.hostname=$akkaHost",
+        "-Dakka.remote.artery.canonical.port=$akkaPort",
+        "-Dakka.cluster.seed-nodes.0=akka://system@$akkaSeedNode",
+        "-Dakka.cluster.roles.0=$akkaRole"
+        )
 }
