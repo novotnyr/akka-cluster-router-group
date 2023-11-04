@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    application
 }
 
 group = "com.github.novotnyr.akka"
@@ -28,4 +29,12 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+}
+
+application {
+    mainClass = "com.github.novotnyr.akka.Runner"
+    val host: String by project
+    val port: String by project
+    val seedNode: String by project
+    applicationDefaultJvmArgs = listOf("-Dakka.remote.artery.canonical.hostname=$host", "-Dakka.remote.artery.canonical.port=$port", "-Dakka.cluster.seed-nodes.0=akka://system@$seedNode")
 }
